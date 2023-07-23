@@ -1,0 +1,63 @@
+public function method_01() {
+	return $this->__call(__FUNCTION__, array_combine([], func_get_args()));
+}
+public function method_02() : void {
+	$this->__call(__FUNCTION__, array_combine([], func_get_args()));
+}
+public function method_03() : int {
+	return $this->__call(__FUNCTION__, array_combine([], func_get_args()));
+}
+public function method_04() : string {
+	return $this->__call(__FUNCTION__, array_combine([], func_get_args()));
+}
+public function method_05() : Tests\Edykim\LaravelContainerHelper\Traits\Contracts\EmptyInterface {
+	return $this->__call(__FUNCTION__, array_combine([], func_get_args()));
+}
+public function method_06() : (Tests\Edykim\LaravelContainerHelper\Traits\Contracts\EmptyInterface & Tests\Edykim\LaravelContainerHelper\Traits\Contracts\ComplexInterface) {
+	return $this->__call(__FUNCTION__, array_combine([], func_get_args()));
+}
+public function method_07() : (Tests\Edykim\LaravelContainerHelper\Traits\Contracts\EmptyInterface | Tests\Edykim\LaravelContainerHelper\Traits\Contracts\ComplexInterface) {
+	return $this->__call(__FUNCTION__, array_combine([], func_get_args()));
+}
+public function method_08() : ((Tests\Edykim\LaravelContainerHelper\Traits\Contracts\EmptyInterface & Tests\Edykim\LaravelContainerHelper\Traits\Contracts\ComplexInterface) | Tests\Edykim\LaravelContainerHelper\Traits\Contracts\OtherEmptyInterface) {
+	return $this->__call(__FUNCTION__, array_combine([], func_get_args()));
+}
+public function method_11($a) {
+	return $this->__call(__FUNCTION__, array_combine(['a'], func_get_args()));
+}
+public function method_12(int $a) {
+	return $this->__call(__FUNCTION__, array_combine(['a'], func_get_args()));
+}
+public function method_13((string | int) $a) {
+	return $this->__call(__FUNCTION__, array_combine(['a'], func_get_args()));
+}
+public function method_14(int $a, $b) {
+	return $this->__call(__FUNCTION__, array_combine(['a', 'b'], func_get_args()));
+}
+public function method_15((string | int) $a, int $b) {
+	return $this->__call(__FUNCTION__, array_combine(['a', 'b'], func_get_args()));
+}
+public function method_16((Tests\Edykim\LaravelContainerHelper\Traits\Contracts\EmptyInterface & Tests\Edykim\LaravelContainerHelper\Traits\Contracts\ComplexInterface) $a) {
+	return $this->__call(__FUNCTION__, array_combine(['a'], func_get_args()));
+}
+public function method_17((Tests\Edykim\LaravelContainerHelper\Traits\Contracts\EmptyInterface | Tests\Edykim\LaravelContainerHelper\Traits\Contracts\ComplexInterface) $a) {
+	return $this->__call(__FUNCTION__, array_combine(['a'], func_get_args()));
+}
+public function method_18(((Tests\Edykim\LaravelContainerHelper\Traits\Contracts\EmptyInterface & Tests\Edykim\LaravelContainerHelper\Traits\Contracts\ComplexInterface) | Tests\Edykim\LaravelContainerHelper\Traits\Contracts\OtherEmptyInterface) $a) {
+	return $this->__call(__FUNCTION__, array_combine(['a'], func_get_args()));
+}
+public function method_19(Tests\Edykim\LaravelContainerHelper\Traits\Contracts\EmptyInterface &$a) {
+	return $this->__call(__FUNCTION__, array_combine(['a'], func_get_args()));
+}
+public function method_21($a) : int {
+	return $this->__call(__FUNCTION__, array_combine(['a'], func_get_args()));
+}
+public function method_22(int $a) : (string | int) {
+	return $this->__call(__FUNCTION__, array_combine(['a'], func_get_args()));
+}
+public function method_23((string | int) $a) : (Tests\Edykim\LaravelContainerHelper\Traits\Contracts\EmptyInterface & Tests\Edykim\LaravelContainerHelper\Traits\Contracts\ComplexInterface) {
+	return $this->__call(__FUNCTION__, array_combine(['a'], func_get_args()));
+}
+public function method_24(((Tests\Edykim\LaravelContainerHelper\Traits\Contracts\EmptyInterface & Tests\Edykim\LaravelContainerHelper\Traits\Contracts\ComplexInterface) | Tests\Edykim\LaravelContainerHelper\Traits\Contracts\OtherEmptyInterface) $a) : ((Tests\Edykim\LaravelContainerHelper\Traits\Contracts\EmptyInterface & Tests\Edykim\LaravelContainerHelper\Traits\Contracts\ComplexInterface) | Tests\Edykim\LaravelContainerHelper\Traits\Contracts\OtherEmptyInterface) {
+	return $this->__call(__FUNCTION__, array_combine(['a'], func_get_args()));
+}
