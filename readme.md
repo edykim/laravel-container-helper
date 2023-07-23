@@ -1,8 +1,18 @@
 # Laravel Container Helper
 
+[![Latest Stable Version](http://poser.pugx.org/edykim/laravel-container-helper/v)](https://packagist.org/packages/edykim/laravel-container-helper) [![License](http://poser.pugx.org/edykim/laravel-container-helper/license)](https://packagist.org/packages/edykim/laravel-container-helper) [![PHP Version Require](http://poser.pugx.org/edykim/laravel-container-helper/require/php)](https://packagist.org/packages/edykim/laravel-container-helper)
+
 This package provides a simple helper for Laravel Container. It allows you to generate an inline utility class that implements a given interface, making your application's logic more configurable.
 
-## Proxy
+## Getting Started
+
+### Installation
+
+```bash
+$ composer require edykim/laravel-container-helper
+```
+
+### Proxy
 
 This function offers a proxy instance of a given concrete implementation for lazy instantiation.
 
@@ -17,7 +27,7 @@ $app->bind(
 );
 ```
 
-## Sequence
+### Sequence
 
 ```php
 use function Edykim\LaravelContainerHelper\Support\instance;
@@ -34,7 +44,7 @@ $app->bind(
 );
 ```
 
-## Conditional
+### Conditional
 
 ```php
 class HasDigitalProducts {
@@ -59,7 +69,7 @@ $app->bind(
 );
 ```
 
-## Nested
+### Nested
 
 ```php
 use function Edykim\LaravelContainerHelper\Support\instance;
@@ -93,3 +103,4 @@ $app->bind(
     );
 );
 ```
+
