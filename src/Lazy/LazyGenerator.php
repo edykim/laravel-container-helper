@@ -1,19 +1,19 @@
 <?php
 
-namespace Edykim\LaravelContainerHelper\Proxy;
+namespace Edykim\LaravelContainerHelper\Lazy;
 
 use Edykim\LaravelContainerHelper\Traits\BuildMethodSignatures;
 
-class ProxyGenerator
+class LazyGenerator
 {
     use BuildMethodSignatures;
 
-    public static function generate($app, string $interfaceName, string|callable $proxyClassName)
+    public static function generate($app, string $interfaceName, string|callable $className)
     {
         $instance = null;
 
-        $instanceStr = '$instance = new class($app, $proxyClassName)
-      extends ' . ProxyResolver::class . '
+        $instanceStr = '$instance = new class($app, $className)
+      extends ' . LazyResolver::class . '
       implements ' . $interfaceName . ' {
           ' . self::getMethods($interfaceName) . '
         };';

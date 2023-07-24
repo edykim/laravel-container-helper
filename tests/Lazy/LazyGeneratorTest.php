@@ -1,31 +1,31 @@
 <?php
 
-namespace Tests\Edykim\LaravelContainerHelper\Proxy;
+namespace Tests\Edykim\LaravelContainerHelper\Lazy;
 
-use Edykim\LaravelContainerHelper\Proxy\ProxyGenerator;
-use Edykim\LaravelContainerHelper\Proxy\ProxyResolver;
+use Edykim\LaravelContainerHelper\Lazy\LazyGenerator;
+use Edykim\LaravelContainerHelper\Lazy\LazyResolver;
 use Tests\Edykim\LaravelContainerHelper\Stub\RuleInterface;
 use Tests\Edykim\LaravelContainerHelper\Stub\StandardRule;
 use Tests\Edykim\LaravelContainerHelper\TestCase;
 
-class ProxyGeneratorTest extends TestCase
+class LazyGeneratorTest extends TestCase
 {
     public function test_instance()
     {
         $appMock = new class () {
         };
 
-        $instance = ProxyGenerator::generate(
+        $instance = LazyGenerator::generate(
             $appMock,
             RuleInterface::class,
             StandardRule::class,
         );
 
-        $this->assertInstanceOf(ProxyResolver::class, $instance);
+        $this->assertInstanceOf(LazyResolver::class, $instance);
         $this->assertInstanceOf(RuleInterface::class, $instance);
     }
 
-    public function test_instance_proxy()
+    public function test_instance_lazy()
     {
         $appMock = new class () {
             public array $made = [];
@@ -45,7 +45,7 @@ class ProxyGeneratorTest extends TestCase
         };
 
         /** @var RuleInterface $instance */
-        $instance = ProxyGenerator::generate(
+        $instance = LazyGenerator::generate(
             $appMock,
             RuleInterface::class,
             StandardRule::class,

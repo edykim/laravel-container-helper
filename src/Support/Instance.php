@@ -3,7 +3,7 @@
 namespace Edykim\LaravelContainerHelper\Support;
 
 use Edykim\LaravelContainerHelper\Conditional\ConditionalGenerator;
-use Edykim\LaravelContainerHelper\Proxy\ProxyGenerator;
+use Edykim\LaravelContainerHelper\Lazy\LazyGenerator;
 use Edykim\LaravelContainerHelper\Sequence\SequenceGenerator;
 
 class Instance
@@ -12,9 +12,9 @@ class Instance
     {
     }
 
-    public function proxy(string|callable $implementation)
+    public function lazy(string|callable $implementation)
     {
-        return fn ($app) => ProxyGenerator::generate($app, $this->interfaceName, $implementation);
+        return fn ($app) => LazyGenerator::generate($app, $this->interfaceName, $implementation);
     }
 
     public function when(

@@ -1,23 +1,23 @@
 <?php
 
-namespace Edykim\LaravelContainerHelper\Proxy;
+namespace Edykim\LaravelContainerHelper\Lazy;
 
 use Edykim\LaravelContainerHelper\Traits\CreateInstance;
 
-class ProxyResolver
+class LazyResolver
 {
     use CreateInstance;
 
     protected $instance = null;
 
-    public function __construct(protected $app, protected $proxyClassName)
+    public function __construct(protected $app, protected $className)
     {
     }
 
     public function __call(string $name, array $arguments): mixed
     {
         if ($this->instance === null) {
-            $this->instance = self::createInstance($this->app, $this->proxyClassName);
+            $this->instance = self::createInstance($this->app, $this->className);
         }
 
         return $this->app->call([$this->instance, $name], $arguments);
@@ -26,7 +26,7 @@ class ProxyResolver
     public function __debugInfo()
     {
         return [
-          "proxy" => $this->proxyClassName,
+          "lazy" => $this->className,
         ];
     }
 }

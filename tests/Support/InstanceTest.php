@@ -3,7 +3,7 @@
 namespace Tests\Edykim\LaravelContainerHelper\Support;
 
 use Edykim\LaravelContainerHelper\Conditional\ConditionalResolver;
-use Edykim\LaravelContainerHelper\Proxy\ProxyResolver;
+use Edykim\LaravelContainerHelper\Lazy\LazyResolver;
 use Edykim\LaravelContainerHelper\Sequence\SequenceResolver;
 use Edykim\LaravelContainerHelper\Support\Instance;
 use Tests\Edykim\LaravelContainerHelper\Conditional\Conditions\AlwaysFalse;
@@ -41,17 +41,17 @@ class InstanceTest extends TestCase
         };
     }
 
-    public function test_instance_proxy()
+    public function test_instance_lazy()
     {
-        $callable = (new Instance(RuleInterface::class))->proxy(StandardRule::class);
+        $callable = (new Instance(RuleInterface::class))->lazy(StandardRule::class);
 
-        /** @var RuleInterface|ProxyResolver $instance */
+        /** @var RuleInterface|LazyResolver $instance */
         $instance = $callable($this->appMock);
 
         $this->assertIsCallable($callable);
         $this->assertInstanceOf(RuleInterface::class, $instance);
-        $this->assertInstanceOf(ProxyResolver::class, $instance);
-        $this->assertEquals(StandardRule::class, $instance->__debugInfo()['proxy']);
+        $this->assertInstanceOf(LazyResolver::class, $instance);
+        $this->assertEquals(StandardRule::class, $instance->__debugInfo()['lazy']);
     }
 
     public function test_instance_conditional()
@@ -108,7 +108,7 @@ class InstanceTest extends TestCase
             $inst->sequence(
                 $inst->when(
                     AlwaysTrue::class,
-                    $inst->proxy($inst->when(
+                    $inst->lazy($inst->when(
                         AlwaysFalse::class,
                         SpecialRule::class,
                         StandardRule::class, // should be called

@@ -12,9 +12,9 @@ This package provides a simple helper for Laravel Container. It allows you to ge
 $ composer require edykim/laravel-container-helper
 ```
 
-### Proxy
+### Lazy
 
-This function offers a proxy instance of a given concrete implementation for lazy instantiation.
+This function offers a lazy-loaded proxy instance of a given concrete implementation for lazy instantiation.
 
 ```php
 use function Edykim\LaravelContainerHelper\Support\instance;
@@ -23,7 +23,7 @@ use function Edykim\LaravelContainerHelper\Support\instance;
 $app->bind(
   CalculatorInterface::class,
   instance(CalculatorInterface::class)
-    ->proxy(HeavilyLoadedCalculator::class)
+    ->lazy(HeavilyLoadedCalculator::class)
 );
 ```
 
@@ -81,7 +81,7 @@ $app->bind(
   instance(CalculatorInterface::class)
     ->with(fn (Instance $instance) => 
       $instance->sequence(
-        $instance->proxy(
+        $instance->lazy(
           $instance->when(
             HasCouponWithThirdPartyCompany::class,
             ThirdPartyCouponCalculator::class,
